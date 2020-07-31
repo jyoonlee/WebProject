@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+ <head>
+ <meta http-equiv="Content-Type" content="text-html; charset=utf-8" />
+ <script language='javascript'>
+function searchText() {
+
+	var upquery =  document.getElementById('searchText').value;
+	var dimSite = document.getElementById('site').options[document.getElementById('site').selectedIndex].value;
+
+	queryUrl = new Array(3);
+	queryUrl[0] = new Array("search.naver.com/search.naver?nfid=junheego&where=nexearch&query=",1);
+	queryUrl[1] = new Array("search.daum.net/cgi-bin/nsp/search.cgi?nil_profile=g&nil_Search=btn&sw=tot&q=",2);
+	queryUrl[2] = new Array("krdic.naver.com/search.nhn?dic_where=krdic&kind=&query=",1);
+
+
+
+	siteName = new Array(18);
+	siteName[0] = "1";
+	siteName[1] = "2";
+	siteName[2] = "3";
+
+	for(var i=0; i < 18; i++) {
+			
+			if(siteName[i] == dimSite) {
+
+					if(document.getElementById('winopen').checked) {
+
+							var dimQuery = (queryUrl[i][1] == 1) ? encodeURIComponent(upquery) : upquery;
+
+							var newWin = window.open('http://' + queryUrl[i][0] + dimQuery ,'_blank');
+							break;
+					
+					} else {
+
+							var dimQuery = (queryUrl[i][1] == 1) ? encodeURIComponent(upquery) : upquery;
+
+							location.href = 'http://' + queryUrl[i][0] + dimQuery;
+							break;
+							
+					}
+
+			}
+
+	}
+
+}
+</script>
+<style type="text/css">
+ .ita {font-style:italic; color:#6799FF;}
+.em {background-color:#6799FF; color:white; font-style:italic;}
+.tab {border:dotted;}
+.bottom {text-align:right; font-style:italic;}
+.h1 {color:blue;}
+.left{float:left; width:25%; height:100%; background-color:white;}
+.center{float:right; width:0.1%; background-color:#D2D2D2;}
+.right{float:right; width:74.9%; background-color:white; color:black;}
+        #right{float:right; width:80%; background-color:white; font-size:13pt; color:#CECECE}
+        #box1 {text-decoration:none; text-align:center; width:100%;}
+        #red {text-align:center; text-decoration:none; background:#36B8CF; color:#E4E4E4;}
+	    #box2 {text-decoration:none; text-align:center; width:100%;}
+		#yel {text-align:center; text-decoration:none; background:#8DB72A; color:#747474;}
+		#box3 {text-decoration:none; text-align:center; width:100%;}
+		#gre {text-align:center; text-decoration:none; background:#D6D09C; color:#747474;}
+		#box4 {text-decoration:none; text-align:center; width:100%;}
+		#blu {text-align:center; text-decoration:none; background:#FF7171; color:#747474;}
+		#box5 {text-decoration:none; text-align:center; width:100%;}
+		#ora {text-align:center; text-decoration:none; background:#FFBA85; color:#747474;}
+
+		.div1 {float:left; padding:50;}
+		.div2 { width:100%; height:100%;}
+		 .s1 {text-shadow: 10px 10px 10px gray; font-size:50;}
+		 .s2 {text-shadow: 10px 10px 10px "#C6C6C6";}
+		 a {text-decoration:none}		
+		 #bo1 {text-decoration:none; float:right; width:20%;}
+	    #bo2 {text-decoration:none; float:right; width:20%;}
+	#bo3 {text-decoration:none; float:right;  width:20%;}
+	#bo4 {text-decoration:none; float:right; width:20%;}
+	h3:first-line {
+font-variant: small-caps;}
+
+p:first-letter {
+font: bold xx-large times;
+font-size:50;
+}
+
+      a:visited { color:purple;}
+	   a:hover {opacity:0.6 ; filter:alpha(opacity=60); }
+      </style>
+<!-- 방문자 수 세기 !-->	  
+<script language=javascript type="text/javascript">
+expireDate = new Date
+expireDate.setMonth(expireDate.getMonth()+6)
+hitCt = eval(cookieVal("pageHit"))
+hitCt++
+document.cookie = "pageHit="+hitCt+";expires=" + expireDate.toGMTString()
+function cookieVal(cookieName) {
+        thisCookie = document.cookie.split("; ")
+        for (i=0; i<thisCookie.length; i++) {
+                if (cookieName == thisCookie[i].split("=")[0]) {
+                        return thisCookie[i].split("=")[1]
+                }
+        }
+        return 0
+}
+</script> 
+
+</head>
+<body style='overflow:hidden'>
+<SCRIPT Language="JavaScript">
+<!-- Hide
+
+
+var scroller;
+var ampm;
+var actualtitle=document.title+" "
+function antiMilitaryTime()
+{
+if (hr == "12"){
+ampm="P.M."
+}
+else if (hr == "13"){
+hr="1"
+ampm="P.M."
+}
+else if (hr == "14"){
+hr="2"
+ampm="P.M."
+}
+else if (hr == "15"){
+hr ="3"
+ampm="P.M."
+}
+else if (hr == "16"){
+hr = "4"
+ampm="P.M."
+}
+else if (hr == "17"){
+hr = "5"
+ampm="P.M."
+}
+else if (hr == "18"){
+hr = "6"
+ampm="P.M."
+}
+else if (hr == "19"){
+hr = "7"
+ampm="P.M."
+}
+else if (hr == "20"){
+hr = "8"
+ampm="P.M."
+}
+else if (hr == "21"){
+hr = "9"
+ampm="P.M."
+}
+else if (hr == "22"){
+hr = "10"
+ampm="P.M."
+}
+else if (hr == "23"){
+hr = "11"
+ampm="P.M."
+}
+else if (hr == "24"){
+hr = "12"
+}
+}
+function addZero(){
+if (min <= "9"){
+min = "0"+min
+}
+if (sec<= "9"){
+sec = "0"+sec
+}
+if (hr <=9){
+hr = "0"+hr
+}
+}
+function time(){
+dt=new Date()
+sec=dt.getSeconds()
+hr=dt.getHours()
+ampm="A.M."
+min=dt.getMinutes()
+}
+function scroll() {
+time()
+antiMilitaryTime()
+addZero()
+var scroller="TIME: "+hr+":"+min+":"+sec+" "+ampm
+var timeout=setTimeout("scroll()", 1000)
+  document.title=actualtitle+scroller
+  }
+if (document.all||document.getElementById)
+scroll()
+//-->
+</SCRIPT>
+ <font face='궁서체'>
+ <div>
+ <div class="left">
+ <a href="index.html">
+  <img src="img/title.png" width=100%;>
+  </a>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<script language=javascript type="text/javascript">
+document.write("<font color=#747474> You visited my homapage </font> <font color=#FF7171>" + hitCt + "</font> <font color=#747474>times!</font>")
+</script>
+  <br><br><br><br><br><br>
+ <div id="box1">
+ <a id="red" href="index.html"><h2 id="red">Home</h2></a>
+ </div>
+ <div id="box2">
+ <a id="yel" href="훈민정음_backup2.html"><h2 id="yel">Hangul</h2></a>
+ </div>
+ <div id="box3">
+ <a id="gre" href="훈민정음_backup3.html"><h2 id="gre">Et Cetera</h2></a>
+</div>
+<div id="box4">
+ <a id="blu" href="훈민정음_backup4.html"><h2 id="blu">About Se-Jong</h2></a>
+ </div>
+ <div id="box5">
+ <a id="ora" href="훈민정음_backup5.html"><h2 id="ora">Quiz</h2></a>
+ </div>
+ </div>
+ </div>
+<div class="right">
+&nbsp;&nbsp;&nbsp;
+<div align="center">
+
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a><img src="img/지읒.png" onmouseup="src='img/정의.png'" onmousedown="src='img/지읒.png'" width=15%></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <a><img src="img/치읓.png"  onmouseup="src='img/치마.png'" onmousedown="src='img/치읓.png'" width=15%></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <a><img src="img/키읔.png"  onmouseup="src='img/키위.png'" onmousedown="src='img/키읔.png'" width=15%></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <a><img src="img/티읕.png"  onmouseup="src='img/타조.png'" onmousedown="src='img/티읕.png'" width=15%></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a><img src="img/피읖.png"  onmouseup="src='img/피망.png'" onmousedown="src='img/피읖.png'" width=15%></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <a><img src="img/히읗.png"  onmouseup="src='img/하품.png'" onmousedown="src='img/히읗.png'" width=15%></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <a><img src="img/자.png" onmouseup="src='img/good.png'"width=15%></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <a><img src="img/음.png"  onmouseup="src='img/job.png'"width=15%></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+  <a href="훈민정음_backup2.html"><img src="img/이전.png" width=30%></a><br><br><br><br><br>
+ <p align="center">
+ <select id='site'>
+<option value="1">Naver</option>
+<option value="2">Daum</option>
+<option value="3" selected>Korean Dxnry</option>
+</select>   
+
+<input type='text' size='26' id='searchText' onkeypress="if(escape(event.keyCode) == 13) { searchText(); }">
+<input type='button' value='Search' onclick='searchText();'>
+<input type='checkbox' id='winopen'>
+New page
+</p>
+
+
+
+ </div>
+</div>
+ <div class="center">
+&nbsp;<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ </div>
+</div>
+ </body>
+</html>

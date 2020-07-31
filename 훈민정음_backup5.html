@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+ <head>
+ <meta http-equiv="Content-Type" content="text-html; charset=utf-8" />
+ <SCRIPT LANGUAGE="JavaScript">
+var ans = new Array;
+var done = new Array;
+var score = 0; //정탑
+	ans[1] = "c";
+	ans[2] = "a";
+
+
+function Engine(question, answer) {
+	if (answer != ans[question]) {
+	if (!done[question]) {
+		done[question] = -1;
+		alert("Wrong!\n\nYour score is now: " + score);
+	}
+	else {
+		alert("You have already answered that!");
+	   }
+	}
+	else {
+		if (!done[question]) {
+			done[question] = -1;
+			score++;
+			alert("Correct!\n\nYour score is now: " + score);
+		}
+		else {		
+			alert("You have already answered that!");
+      }
+   }
+}
+	
+function NextLevel () {
+	if (score >= 5) {
+		alert("Wow, You're 한글의신!")
+	}
+	else { alert("You need 5 points to call '한글의신'")   }
+}
+
+</SCRIPT>
+<style type="text/css">
+ .ita {font-style:italic; color:#6799FF;}
+.em {background-color:#6799FF; color:white; font-style:italic;}
+.tab {border:dotted;}
+.bottom {text-align:right; font-style:italic;}
+.h1 {color:blue;}
+.left{float:left; width:25%; height:100%; background-color:white;}
+.center{float:right; width:0.1%; background-color:#D2D2D2;}
+.right{float:right; width:74.9%; background-color:white; color:#747474; font-size:15pt;}
+#right1{float:right;}
+        #right{float:right; width:80%; background-color:white; font-size:13pt; color:#CECECE}
+        #box1 {text-decoration:none; text-align:center; width:100%;}
+        #red {text-align:center; text-decoration:none; background:#36B8CF; color:#E4E4E4;}
+	    #box2 {text-decoration:none; text-align:center; width:100%;}
+		#yel {text-align:center; text-decoration:none; background:#8DB72A; color:#747474;}
+		#box3 {text-decoration:none; text-align:center; width:100%;}
+		#gre {text-align:center; text-decoration:none; background:#D6D09C; color:#747474;}
+		#box4 {text-decoration:none; text-align:center; width:100%;}
+		#blu {text-align:center; text-decoration:none; background:#FF7171; color:#747474;}
+		#box5 {text-decoration:none; text-align:center; width:100%;}
+		#ora {text-align:center; text-decoration:none; background:#FFBA85; color:#747474;}
+		#redcolor{color:#FF7171;}
+		#bluecolor{color:#36B8CF;}
+		.div1 {float:left; padding:50;}
+		.div2 { width:100%; height:100%;}
+		 .s1 {text-shadow: 10px 10px 10px gray; font-size:50;}
+		 .s2 {text-shadow: 10px 10px 10px "#C6C6C6";}
+		 a {text-decoration:none}		
+		 #bo1 {text-decoration:none; float:right; width:20%;}
+	    #bo2 {text-decoration:none; float:right; width:20%;}
+	#bo3 {text-decoration:none; float:right;  width:20%;}
+	#bo4 {text-decoration:none; float:right; width:20%;}
+
+p:first-letter {
+
+font-size:50;
+}
+
+	   a:hover {opacity:0.6 ; filter:alpha(opacity=60); }
+	   a:visited {color:black;}
+      </style>
+<!-- 방문자 수 세기 !-->	  
+<script language=javascript type="text/javascript">
+expireDate = new Date
+expireDate.setMonth(expireDate.getMonth()+6)
+hitCt = eval(cookieVal("pageHit"))
+hitCt++
+document.cookie = "pageHit="+hitCt+";expires=" + expireDate.toGMTString()
+function cookieVal(cookieName) {
+        thisCookie = document.cookie.split("; ")
+        for (i=0; i<thisCookie.length; i++) {
+                if (cookieName == thisCookie[i].split("=")[0]) {
+                        return thisCookie[i].split("=")[1]
+                }
+        }
+        return 0
+}
+</script>
+<script language="javascript">
+var delay=8; //시간설정
+var correctAnswers=new Array("c","a","d","b","a");  //정답
+
+var q_num=1;
+var timer;
+var layer;
+var clock=delay;
+var score=0;
+
+function show_question(){
+	if (layer=eval("document.all.question"+q_num)){
+		layer.style.display="inline";
+		document.all.timeLeft.innerHTML=clock;
+		hide_question();
+	} else {
+		document.all.timeLeft.innerHTML=0;
+		document.all.quizScore.innerHTML="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You've won "+score+" point of "+(q_num-1)+" points!";
+		document.all.quizScore.style.display="inline";
+	}
+}
+
+function hide_question(){
+	if (clock>0) {
+		document.all.timeLeft.innerHTML=clock;
+		clock--;
+		timer=setTimeout("hide_question()",1000);
+	} else {
+		clearTimeout(timer);
+		document.all.answerBoard.innerHTML=" ";
+		clock=delay;
+		layer.style.display="none";
+		q_num++;
+		show_question();
+	}
+}
+
+function check_answer(answer){
+	if (correctAnswers[q_num-1]==answer){
+		score++;
+		document.all.answerBoard.innerHTML="<font color=blue><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Correct!</b></font>";
+	} else {
+		document.all.answerBoard.innerHTML="<font color=red><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Your Wrong!</b></font>";
+	}
+	clock=0;
+	clearTimeout(timer);
+	timer=setTimeout("hide_question()",700);
+}
+
+window.onload=show_question;
+</script>
+
+</head>
+<body style='overflow:hidden'>
+<SCRIPT Language="JavaScript">
+<!-- Hide
+
+
+var scroller;
+var ampm;
+var actualtitle=document.title+" "
+function antiMilitaryTime()
+{
+if (hr == "12"){
+ampm="P.M."
+}
+else if (hr == "13"){
+hr="1"
+ampm="P.M."
+}
+else if (hr == "14"){
+hr="2"
+ampm="P.M."
+}
+else if (hr == "15"){
+hr ="3"
+ampm="P.M."
+}
+else if (hr == "16"){
+hr = "4"
+ampm="P.M."
+}
+else if (hr == "17"){
+hr = "5"
+ampm="P.M."
+}
+else if (hr == "18"){
+hr = "6"
+ampm="P.M."
+}
+else if (hr == "19"){
+hr = "7"
+ampm="P.M."
+}
+else if (hr == "20"){
+hr = "8"
+ampm="P.M."
+}
+else if (hr == "21"){
+hr = "9"
+ampm="P.M."
+}
+else if (hr == "22"){
+hr = "10"
+ampm="P.M."
+}
+else if (hr == "23"){
+hr = "11"
+ampm="P.M."
+}
+else if (hr == "24"){
+hr = "12"
+}
+}
+function addZero(){
+if (min <= "9"){
+min = "0"+min
+}
+if (sec<= "9"){
+sec = "0"+sec
+}
+if (hr <=9){
+hr = "0"+hr
+}
+}
+function time(){
+dt=new Date()
+sec=dt.getSeconds()
+hr=dt.getHours()
+ampm="A.M."
+min=dt.getMinutes()
+}
+function scroll() {
+time()
+antiMilitaryTime()
+addZero()
+var scroller="TIME: "+hr+":"+min+":"+sec+" "+ampm
+var timeout=setTimeout("scroll()", 1000)
+  document.title=actualtitle+scroller
+  }
+if (document.all||document.getElementById)
+scroll()
+//-->
+</SCRIPT>
+ <font  face='궁서체'>
+ <div>
+ <div class="left">
+ <a href="index.html">
+  <img src="img/title.png" width=100%;>
+  </a>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<script language=javascript type="text/javascript">
+document.write("<font color=#747474> You visited my homapage </font> <font color=#FF7171>" + hitCt + "</font> <font color=#747474>times!</font>")
+</script>
+  <br><br><br><br><br><br>
+ <div id="box1">
+ <a id="red" href="index.html"><h2 id="red">Home</h2></a>
+ </div>
+ <div id="box2">
+ <a id="yel" href="훈민정음_backup2.html"><h2 id="yel">Hangul</h2></a>
+ </div>
+ <div id="box3">
+ <a id="gre" href="훈민정음_backup3.html"><h2 id="gre">Et Cetera</h2></a>
+</div>
+<div id="box4">
+ <a id="blu" href="훈민정음_backup4.html"><h2 id="blu">About Se-Jong</h2></a>
+ </div>
+ <div id="box5">
+ <a id="ora" href="훈민정음_backup5.html"><h2 id="ora">Quiz</h2></a>
+ </div>
+ </div>
+ </div>
+<div class="right">
+<div>
+<br><br>
+<h3 id="redcolor">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Speed Quiz</h3>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Timer : <B><span id="timeLeft"></span></B> Seconds left.<br><br>
+<div id="answerBoard"> </div>
+<br>
+
+<div id="question1" style="display:none">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>1. Who created <i>Hangul</i>?</b><br><br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="check_answer('a')">a) Jang Yeong-sil</a><br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="check_answer('b')">b) Kim Hyeon-suk</a><br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="check_answer('c')">c) King Sejong</a><br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="check_answer('d')">d) Ahn Jung-geun</a><br>
+</div>
+
+<div id="question2" style="display:none">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>2. What is the word beginning to 'ㄱ'?</b><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="check_answer('a')">a) 가방(ga-bang)</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="check_answer('b')">b) 나비(na-bi)</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="check_answer('c')">c) 다리(da-ri)</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="check_answer('d')">d) 라면(ra-myeon)</a><br>
+</div>
+
+<div id="question3" style="display:none">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>3. What is the mean of '다리'?</b><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="check_answer('a')">a) hat</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="check_answer('b')">b) ramen</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="check_answer('c')">c) butterfly</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="check_answer('d')">d) leg</a><br>
+</div>
+
+<div id="question4" style="display:none">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>4. How many letters in hangul?</b><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="check_answer('a')">a) 30</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="check_answer('b')">b) 24</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="check_answer('c')">c) 31</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="check_answer('d')">d) 27</a><br>
+</div>
+
+<div id="question5" style="display:none">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>5. What is 'hangul' in korean?</b><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="check_answer('a')">a) 한글</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="check_answer('b')">b) 한자</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="check_answer('c')">c) 일본어</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="check_answer('d')">d) 영어</a><br>
+</div>
+
+<div id="quizScore" style="display:none">
+</div><br>
+<h3 id="bluecolor">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hard Quiz</h3>
+<form>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>1.  What is the correct pronunciation of 'ㅑ'?</b><p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" value="a" onClick="Engine(1, this.value)">a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" value="b" onClick="Engine(1, this.value)">ee<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" value="c" onClick="Engine(1, this.value)">ya<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" value="d" onClick="Engine(1, this.value)">yo<p><img src="img/deco.png" id="right1">
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>2. What is the correct using of word spacing in hangul?</b><p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" value="a" onClick="Engine(2, this.value)">나도 너같이 노래를 잘했으면 좋겠다<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" value="b" onClick="Engine(2, this.value)">내가 사랑한 사람은 너 밖에 없어<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" value="c" onClick="Engine(2, this.value)">지금 창문밖에 비가 내린다<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" value="d" onClick="Engine(2, this.value)">너 하고 안 놀아<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" onClick="NextLevel()" value="Check My Level">
+</FORM>
+</div>
+</div>
+ <div class="center">
+&nbsp;<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ </div>
+</div>
+ </body>
+</html>
